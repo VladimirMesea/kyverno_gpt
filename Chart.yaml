@@ -2,10 +2,10 @@ apiVersion: v2
 name: kyverno
 description: A Helm chart for installing Kyverno with policies
 type: application
-version: 0.1.0
-appVersion: "1.6.0"
+version: 1.0.0
+appVersion: "1.0"
 
 dependencies:
   - name: kyverno
-    version: 2.6.0
+    version: 3.2.6
     repository: https://kyverno.github.io/kyverno/
