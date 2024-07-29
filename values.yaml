@@ -16,7 +16,7 @@ kyverno:
     container:
       resources:
         limits:
-          cpu: 2Gi
+          cpu: 2000mi
           memory: 2Gi
   backgroundController:
     replicas: 1
