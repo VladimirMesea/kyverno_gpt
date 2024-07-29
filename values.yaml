@@ -6,7 +6,11 @@ kyverno:
       create: false
   resources:
     limits:
+      cpu: 2000mi
       memory: 2Gi
+    requests:
+      cpu: 200mi
+      memory: 500mi      
   admissionController:
     replicas: 1
     container:
