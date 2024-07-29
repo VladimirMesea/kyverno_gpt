@@ -32,6 +32,7 @@ kyverno:
         memory: "2Gi"
       requests:
         memory: "500Mi"
+  config.webhooks: '[{"namespaceSelector":{"matchExpressions":[{"key":"kubernetes.io/metadata.name","operator":"NotIn","values":["kyverno-system"]}]}}]'      
   podDisruptionBudget:
     minAvailable: 1
   webhooksCleanup:
