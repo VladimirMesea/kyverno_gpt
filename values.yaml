@@ -1,0 +1,50 @@
+kyverno:
+  namespace: kyverno-system
+  rbac:
+    create: true
+    serviceAccount:
+      create: false
+  resources:
+    limits:
+      memory: 2Gi
+  admissionController:
+    replicas: 1
+    container:
+      resources:
+        limits:
+          memory: 2Gi
+  backgroundController:
+    replicas: 1
+  cleanupController:
+    replicas: 1
+  reportsController:
+    replicas: 1
+    resources:
+      limits:
+        memory: 2Gi
+  podDisruptionBudget:
+    minAvailable: 1
+  webhooksCleanup:
+    enable: true
+  livenessProbe:
+    failureThreshold: 10
+    httpGet:
+      path: /health/liveness
+      port: 9443
+      scheme: HTTPS
+    initialDelaySeconds: 45
+    periodSeconds: 30
+    successThreshold: 1
+    timeoutSeconds: 30
+  readinessProbe:
+    failureThreshold: 12
+    httpGet:
+      path: /health/readiness
+      port: 9443
+      scheme: HTTPS
+    initialDelaySeconds: 30
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 30
+  extraArgs:
+    - webhookTimeout=30
