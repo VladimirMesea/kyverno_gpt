@@ -6,10 +6,10 @@ kyverno:
       create: false
   resources:
     limits:
-      cpu: 2Gi
+      cpu: 2000mi
       memory: 2Gi
     requests:
-      cpu: 200mi
+      cpu: 500mi
       memory: 500mi      
   admissionController:
     replicas: 1
